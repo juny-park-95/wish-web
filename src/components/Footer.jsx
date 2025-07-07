@@ -56,7 +56,7 @@ function Footer() {
             <div className="footer-column">
               <h4>연락처</h4>
               <ul>
-                <li>서울시 서초구 태봉로 114<br />서울 AI 허브 808호</li>
+                <li>서울시 서초구 태봉로 114<br />양재 AI 허브 808호</li>
                 <li> 사업자등록번호 : 237-86-02910 </li>
                 <li>02-1234-5678</li>
                 <li>contact@wish.global</li>
