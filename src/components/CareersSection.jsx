@@ -17,7 +17,7 @@ function CareersSection() {
       step: "02",
       title: "1차 면접",
       description: "기술 면접 및 인성 면접",
-      duration: "1주",
+      duration: "2-3일",
       details: [
         "기술 역량 평가",
         "문제 해결 능력 검토",
