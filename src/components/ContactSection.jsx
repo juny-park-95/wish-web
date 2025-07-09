@@ -31,7 +31,7 @@ function ContactSection() {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: 'contact@wish.global', // 수신할 이메일
+          to_email: 'bwlee@wish.global', // 수신할 이메일
           subject: `위시 홈페이지 문의 - ${formData.name}`
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key'
@@ -67,7 +67,7 @@ function ContactSection() {
               <div className="contact-icon">📧</div>
               <div className="contact-details">
                 <h4>이메일</h4>
-                <p>contact@wish.global</p>
+                <p>bwlee@wish.global</p>
               </div>
             </div>
             
