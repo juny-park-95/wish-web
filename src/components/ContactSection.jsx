@@ -71,13 +71,15 @@ function ContactSection() {
               </div>
             </div>
             
-            // <div className="contact-item">
-            //   <div className="contact-icon">📞</div>
-            //   <div className="contact-details">
-            //     <h4>전화번호</h4>
-            //     <p>02-1234-5678</p>
-            //   </div>
-            // </div>
+            {/*
+              <div className="contact-item">
+                <div className="contact-icon">📞</div>
+                <div className="contact-details">
+                  <h4>전화번호</h4>
+                  <p>02-1234-5678</p>
+                </div>
+              </div>
+              */}
             
             <div className="contact-item">
               <div className="contact-icon">📍</div>
