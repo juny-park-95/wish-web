@@ -58,7 +58,7 @@ function Footer() {
               <ul>
                 <li>서울시 서초구 태봉로 114<br />양재 AI 허브 808호</li>
                 <li> 사업자등록번호 : 237-86-02910 </li>
-                <li>bwlee@wish.global</li>
+                <li>contact@wish.global</li>
               </ul>
             </div>
           </div>
