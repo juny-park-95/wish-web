@@ -125,3 +125,5 @@ dist-ssr
 # Production builds
 /public/hot
 /storage/*.key 
+# package-lock
+package-lock.json

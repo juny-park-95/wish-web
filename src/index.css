@@ -969,8 +969,8 @@ body {
 
 .fade-in-up {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(0px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in-up.visible {
@@ -1161,7 +1161,7 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(0px);
   }
   to {
     opacity: 1;
@@ -1323,7 +1323,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* AOS 애니메이션으로 인한 overflow 문제 해결 */
+  /* 애니메이션으로 인한 overflow 문제 해결 */
   body, html {
     overflow-x: hidden !important;
     width: 100% !important;
@@ -1334,6 +1334,23 @@ body {
   section {
     overflow-x: hidden !important;
     width: 100% !important;
+  }
+  
+  /* 모바일에서 애니메이션 transform 축소 */
+  .fade-in-up {
+    transform: translateY(0px);
+  }
+  
+  .fade-in-left {
+    transform: translateX(15px);
+  }
+  
+  .fade-in-right {
+    transform: translateX(-15px);
+  }
+  
+  .fade-in {
+    transform: translateY(0px);
   }
   
   
@@ -1439,6 +1456,12 @@ body {
     grid-template-rows: none;
     gap: 1.5rem;
     max-width: 500px;
+    overflow: visible !important;
+  }
+  
+  .service-card {
+    margin: 0;
+    will-change: transform, opacity;
   }
 
   .features-grid {
@@ -2292,16 +2315,34 @@ body {
 }
 
 @media (max-width: 768px) {
+  .ai-comparison {
+    margin: 1.5rem 0;
+  }
+  
   .comparison-images {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .comparison-images img {
+    max-height: 200px;
+    object-fit: cover;
   }
   
   .comparison-intro {
-    padding: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .comparison-intro p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .comparison-container {
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
   
   .comparison-section {
@@ -2309,7 +2350,28 @@ body {
   }
   
   .comparison-feature {
-    padding: 1rem;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .comparison-feature h4 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .comparison-feature ul {
+    font-size: 0.9rem;
+  }
+  
+  .comparison-divider {
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+  }
+  
+  .divider-icon {
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   
   /* 모바일에서 솔루션 구성 카드 세로 배치 */

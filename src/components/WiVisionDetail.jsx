@@ -51,8 +51,8 @@ function WiVisionDetail() {
                 <div className="comparison-section as-is">
                   <h3 className="comparison-title">As-Is (기존 방식)</h3>
                   <div className="comparison-images">
-                    <img src="/WiMotion_as_is_1.png" alt="기존 방식 1" />
-                    <img src="/WiMotion_as_is_2.png" alt="기존 방식 2" />
+                    <img src="/WiVision_as_is_1.png" alt="기존 방식 1" />
+                    <img src="/WiVision_as_is_2.png" alt="기존 방식 2" />
                   </div>
                   <div className="comparison-content">
                     <div className="comparison-feature">
@@ -82,8 +82,8 @@ function WiVisionDetail() {
                 <div className="comparison-section to-be">
                   <h3 className="comparison-title">To-Be (WiVision)</h3>
                   <div className="comparison-images">
-                    <img src="/WiMotion_to_be_1.png" alt="WiVision 방식 1" />
-                    <img src="/WiMotion_to_be_2.png" alt="WiVision 방식 2" />
+                    <img src="/WiVision_to_be_1.png" alt="WiVision 방식 1" />
+                    <img src="/WiVision_to_be_2.png" alt="WiVision 방식 2" />
                   </div>
                   <div className="comparison-content">
                     <div className="comparison-feature">
