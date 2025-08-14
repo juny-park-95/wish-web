@@ -1,12 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function WiMotionDetail() {
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.2);
+  const { ref: demoRef, isVisible: demoVisible } = useScrollAnimation(0.2);
+  const { ref: featuresRef, isVisible: featuresVisible } = useScrollAnimation(0.2);
+  const { ref: specsRef, isVisible: specsVisible } = useScrollAnimation(0.2);
+  const { ref: casesRef, isVisible: casesVisible } = useScrollAnimation(0.2);
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.2);
+
   return (
     <div className="service-detail">
       <div className="service-detail-hero">
         <div className="container">
-          <div className="detail-hero-content">
+          <div ref={heroRef} className={`detail-hero-content ${heroVisible ? 'fade-in' : ''}`} style={{opacity: heroVisible ? 1 : 0, transform: heroVisible ? 'translateY(0)' : 'translateY(30px)', transition: 'all 0.8s ease-out'}}>
             <div className="detail-hero-text">
               <div className="detail-breadcrumb">
                 <Link to="/" className="breadcrumb-link">홈</Link>
@@ -32,7 +40,7 @@ function WiMotionDetail() {
       <div className="service-detail-content">
         <div className="container">
           {/* 데모 영상 */}
-          <section className="detail-section">
+          <section ref={demoRef} className={`detail-section fade-in-up ${demoVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">솔루션 데모</h2>
             <div className="demo-video">
               <video controls width="100%" style={{maxWidth: '800px', margin: '0 auto', display: 'block'}}>
@@ -43,7 +51,7 @@ function WiMotionDetail() {
           </section>
 
           {/* 주요 특징 */}
-          <section className="detail-section">
+          <section ref={featuresRef} className={`detail-section fade-in-up ${featuresVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">주요 특징</h2>
             <div className="features-grid">
               <div className="feature-item">
@@ -80,7 +88,7 @@ function WiMotionDetail() {
           </section>
 
           {/* 기술 사양 */}
-          <section className="detail-section">
+          <section ref={specsRef} className={`detail-section fade-in-up ${specsVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">기술 사양</h2>
             <div className="tech-specs">
               <div className="spec-group">
@@ -118,7 +126,7 @@ function WiMotionDetail() {
           </section>
 
           {/* 적용 사례 */}
-          <section className="detail-section">
+          <section ref={casesRef} className={`detail-section fade-in-up ${casesVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">적용 사례</h2>
             <div className="case-studies">
               <div className="case-item">
@@ -137,7 +145,7 @@ function WiMotionDetail() {
           </section>
 
           {/* CTA */}
-          <section className="detail-cta">
+          <section ref={ctaRef} className={`detail-cta fade-in ${ctaVisible ? 'visible' : ''}`}>
             <div className="cta-content">
               <h2>WiMotion 도입을 고려하고 계신가요?</h2>
               <p>전문가와 상담하여 맞춤형 솔루션을 제안받아보세요.</p>

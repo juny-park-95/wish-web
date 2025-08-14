@@ -1,12 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function WiCreateDetail() {
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.2);
+  const { ref: demoRef, isVisible: demoVisible } = useScrollAnimation(0.2);
+  const { ref: featuresRef, isVisible: featuresVisible } = useScrollAnimation(0.2);
+  const { ref: specsRef, isVisible: specsVisible } = useScrollAnimation(0.2);
+  const { ref: casesRef, isVisible: casesVisible } = useScrollAnimation(0.2);
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.2);
+
   return (
     <div className="service-detail">
       <div className="service-detail-hero">
         <div className="container">
-          <div className="detail-hero-content">
+          <div ref={heroRef} className={`detail-hero-content ${heroVisible ? 'fade-in' : ''}`} style={{opacity: heroVisible ? 1 : 0, transform: heroVisible ? 'translateY(0)' : 'translateY(30px)', transition: 'all 0.8s ease-out'}}>
             <div className="detail-hero-text">
               <div className="detail-breadcrumb">
                 <Link to="/" className="breadcrumb-link">홈</Link>
@@ -32,7 +40,7 @@ function WiCreateDetail() {
       <div className="service-detail-content">
         <div className="container">
           {/* 주요 기능 */}
-          <section className="detail-section">
+          <section ref={featuresRef} className={`detail-section fade-in-up ${featuresVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">주요 기능</h2>
             <div className="features-grid">
               <div className="feature-item">
@@ -59,7 +67,7 @@ function WiCreateDetail() {
           </section>
 
           {/* 기술 스펙 */}
-          <section className="detail-section">
+          <section ref={specsRef} className={`detail-section fade-in-up ${specsVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">기술 사양</h2>
             <div className="tech-specs">
               <div className="spec-group">
@@ -93,7 +101,7 @@ function WiCreateDetail() {
           </section>
 
           {/* 적용 사례 */}
-          <section className="detail-section">
+          <section ref={casesRef} className={`detail-section fade-in-up ${casesVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">적용 사례</h2>
             <div className="case-studies">
               <div className="case-item">
@@ -108,7 +116,7 @@ function WiCreateDetail() {
           </section>
 
           {/* CTA */}
-          <section className="detail-cta">
+          <section ref={ctaRef} className={`detail-cta fade-in ${ctaVisible ? 'visible' : ''}`}>
             <div className="cta-content">
               <h2>WiCreate 도입을 고려하고 계신가요?</h2>
               <p>전문가와 상담하여 맞춤형 솔루션을 제안받아보세요.</p>

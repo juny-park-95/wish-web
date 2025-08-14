@@ -9,6 +9,7 @@ import ContactSection from "./ContactSection";
 function HomePage() {
   const location = useLocation();
 
+
   useEffect(() => {
     // URL에 해시가 있으면 해당 섹션으로 스크롤
     if (location.hash) {

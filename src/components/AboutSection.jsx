@@ -1,10 +1,14 @@
 import React from "react";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function AboutSection() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation(0.2);
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation(0.2);
+  const { ref: processRef, isVisible: processVisible } = useScrollAnimation(0.2);
   return (
     <section id="about" className="about-section">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}>
           <h2 className="section-title">회사 소개</h2>
           <p className="section-subtitle">
             위시는 고객의 솔루션을 현실로 구현하는 AI 전문 기업입니다
@@ -12,7 +16,7 @@ function AboutSection() {
         </div>
         
         <div className="about-content">
-          <div className="about-text">
+          <div ref={contentRef} className={`about-text fade-in-up ${contentVisible ? 'visible' : ''}`}>
             <div className="about-item">
               <h3>우리의 미션</h3>
               <p>
@@ -51,7 +55,7 @@ function AboutSection() {
             </div>
           </div>
           
-          <div className="about-process">
+          <div ref={processRef} className={`about-process fade-in-up delay-200 ${processVisible ? 'visible' : ''}`}>
             <h3>AI 솔루션 개발 프로세스</h3>
             <div className="process-steps">
               <div className="process-step">

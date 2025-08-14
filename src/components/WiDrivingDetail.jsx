@@ -1,12 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function WiDrivingDetail() {
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.2);
+  const { ref: demoRef, isVisible: demoVisible } = useScrollAnimation(0.2);
+  const { ref: featuresRef, isVisible: featuresVisible } = useScrollAnimation(0.2);
+  const { ref: specsRef, isVisible: specsVisible } = useScrollAnimation(0.2);
+  const { ref: casesRef, isVisible: casesVisible } = useScrollAnimation(0.2);
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.2);
   return (
     <div className="service-detail">
       <div className="service-detail-hero">
         <div className="container">
-          <div className="detail-hero-content">
+          <div ref={heroRef} className={`detail-hero-content ${heroVisible ? 'fade-in' : ''}`} style={{opacity: heroVisible ? 1 : 0, transform: heroVisible ? 'translateY(0)' : 'translateY(30px)', transition: 'all 0.8s ease-out'}}>
             <div className="detail-hero-text">
               <div className="detail-breadcrumb">
                 <Link to="/" className="breadcrumb-link">홈</Link>
@@ -32,7 +39,7 @@ function WiDrivingDetail() {
       <div className="service-detail-content">
         <div className="container">
           {/* 데모 영상 */}
-          <section className="detail-section">
+          <section ref={demoRef} className={`detail-section fade-in-up ${demoVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">솔루션 데모</h2>
             <div className="demo-video">
               <video controls width="100%" style={{maxWidth: '800px', margin: '0 auto', display: 'block'}}>
@@ -43,7 +50,7 @@ function WiDrivingDetail() {
           </section>
 
           {/* 주요 특징 */}
-          <section className="detail-section">
+          <section ref={featuresRef} className={`detail-section fade-in-up ${featuresVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">주요 특징</h2>
             <div className="features-grid">
               <div className="feature-item">
@@ -117,7 +124,7 @@ function WiDrivingDetail() {
           </section>
 
           {/* 기술 사양 */}
-          <section className="detail-section">
+          <section ref={specsRef} className={`detail-section fade-in-up ${specsVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">기술 사양</h2>
             <div className="tech-specs">
               <div className="spec-group">
@@ -126,7 +133,7 @@ function WiDrivingDetail() {
                   <li>LiDAR 센서</li>
                   <li>RGB-D 카메라</li>
                   <li>IMU 센서</li>
-                  <li>GPS/GNSS</li>
+                  <li>RTK/GNSS</li>
                 </ul>
               </div>
               <div className="spec-group">
@@ -151,22 +158,22 @@ function WiDrivingDetail() {
           </section>
 
           {/* 적용 사례 */}
-          <section className="detail-section">
+          <section ref={casesRef} className={`detail-section fade-in-up ${casesVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">적용 사례</h2>
             <div className="case-studies">
               <div className="case-item">
-                <h3>대형 건설 현장 자동화</h3>
-                <p>10대 이상의 건설 장비를 동시에 자동화하여 작업 효율성을 40% 향상시켰습니다.</p>
+                <h3>현장 자동화</h3>
+                <p>화성, 경남 지역 필지에 자율주행 트랙터 장비를 자동화하여 작업 효율성을 향상하고, 무인 작업, 주행 데모를 완수하였습니다.</p>
               </div>
               <div className="case-item">
                 <h3>스마트 농장 구축</h3>
-                <p>100헥타르 규모의 농장에서 완전 자율 주행 시스템을 도입하여 인력 절약과 정밀 농업을 실현했습니다.</p>
+                <p>완전 자율 주행 시스템을 도입하여 인력 절약과 정밀 농업을 실현했습니다.</p>
               </div>
             </div>
           </section>
 
           {/* CTA */}
-          <section className="detail-cta">
+          <section ref={ctaRef} className={`detail-cta fade-in ${ctaVisible ? 'visible' : ''}`}>
             <div className="cta-content">
               <h2>WiDriving 도입을 고려하고 계신가요?</h2>
               <p>전문가와 상담하여 맞춤형 솔루션을 제안받아보세요.</p>

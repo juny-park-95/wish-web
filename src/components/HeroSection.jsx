@@ -1,6 +1,10 @@
 import React from "react";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function HeroSection() {
+  const { ref: textRef, isVisible: textVisible } = useScrollAnimation(0.3);
+  const { ref: visualRef, isVisible: visualVisible } = useScrollAnimation(0.3);
+  
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -11,7 +15,7 @@ function HeroSection() {
   return (
     <section id="home" className="hero">
       <div className="hero-content">
-        <div className="hero-text">
+        <div ref={textRef} className={`hero-text fade-in-right ${textVisible ? 'visible' : ''}`}>
           <h1 className="hero-title">
             당신의 <span className="highlight">꿈</span>을<br />
             <span className="highlight">현실</span>로 만드는 파트너
@@ -29,7 +33,7 @@ function HeroSection() {
             </button>
           </div>
         </div>
-        <div className="hero-visual">
+        <div ref={visualRef} className={`hero-visual fade-in-left ${visualVisible ? 'visible' : ''}`}>
           <div className="floating-elements">
             <div className="floating-card">
               <div className="card-icon">💡</div>

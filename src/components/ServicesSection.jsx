@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function ServicesSection() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation(0.2);
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation(0.1);
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.3);
   const services = [
     {
       name: "WiDriving",
@@ -64,16 +68,16 @@ function ServicesSection() {
   return (
     <section id="services" className="services-section">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}>
           <h2 className="section-title">우리의 솔루션</h2>
           <p className="section-subtitle">
             최첨단 AI 기술로 구현한 위시의 혁신적인 솔루션들을 소개합니다
           </p>
         </div>
         
-        <div className="services-grid">
+        <div ref={gridRef} className={`services-grid ${gridVisible ? 'visible' : ''}`}>
           {services.map((service, index) => (
-            <div key={index} className="service-card">
+            <div key={index} className={`service-card fade-in-up ${gridVisible ? 'visible' : ''}`} style={{transitionDelay: `${index * 0.1}s`}}>
               <div className="service-image">
                 <img src={service.image} alt={service.name} />
                 <div className="service-category">{service.category}</div>
@@ -99,7 +103,7 @@ function ServicesSection() {
           ))}
         </div>
         
-        <div className="services-cta">
+        <div ref={ctaRef} className={`services-cta fade-in ${ctaVisible ? 'visible' : ''}`}>
           <p>더 자세한 솔루션 정보가 궁금하시나요?</p>
           <button 
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}

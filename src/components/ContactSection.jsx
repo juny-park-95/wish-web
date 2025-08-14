@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import emailjs from '@emailjs/browser';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function ContactSection() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation(0.2);
+  const { ref: infoRef, isVisible: infoVisible } = useScrollAnimation(0.2);
+  const { ref: formRef, isVisible: formVisible } = useScrollAnimation(0.2);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -54,7 +58,7 @@ function ContactSection() {
   return (
     <section id="contact" className="contact-section">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}>
           <h2 className="section-title">문의하기</h2>
           <p className="section-subtitle">
             위시에 대해 궁금한 점이 있으시면 언제든 연락주세요
@@ -62,7 +66,7 @@ function ContactSection() {
         </div>
         
         <div className="contact-content">
-          <div className="contact-info">
+          <div ref={infoRef} className={`contact-info fade-in-right ${infoVisible ? 'visible' : ''}`}>
             <div className="contact-item">
               <div className="contact-icon">📧</div>
               <div className="contact-details">
@@ -90,7 +94,7 @@ function ContactSection() {
             </div>
           </div>
           
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form ref={formRef} className={`contact-form fade-in-left ${formVisible ? 'visible' : ''}`} onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">이름</label>
               <input

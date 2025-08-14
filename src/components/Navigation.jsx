@@ -1,10 +1,19 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+
+  const handleLogoClick = (e) => {
+    if (isHomePage) {
+      // 홈페이지에서는 최상단으로 스크롤
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // 다른 페이지에서는 Link 컴포넌트의 기본 동작(홈으로 이동) 수행
+  };
 
   const handleNavigation = (sectionId) => {
     setIsMenuOpen(false);
@@ -28,10 +37,10 @@ function Navigation() {
   return (
     <nav className="navigation">
       <div className="nav-container">
-        <div className="nav-logo">
+        <Link to="/" className="nav-logo" onClick={handleLogoClick}>
           <img src="/logo.png" alt="WISH" className="logo-img" />
           <span className="logo-text">WISH</span>
-        </div>
+        </Link>
         
         <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <button onClick={() => handleNavigation('home')} className="nav-link">

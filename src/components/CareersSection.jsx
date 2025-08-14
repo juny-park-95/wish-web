@@ -1,6 +1,11 @@
 import React from "react";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function CareersSection() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation(0.2);
+  const { ref: processRef, isVisible: processVisible } = useScrollAnimation(0.2);
+  const { ref: benefitsRef, isVisible: benefitsVisible } = useScrollAnimation(0.2);
+  const { ref: positionsRef, isVisible: positionsVisible } = useScrollAnimation(0.2);
   const hiringProcess = [
     {
       step: "01",
@@ -116,7 +121,7 @@ function CareersSection() {
   return (
     <section id="careers" className="careers-section">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}>
           <h2 className="section-title">함께 성장할 인재를 찾습니다</h2>
           <p className="section-subtitle">
             위시와 함께 AI 기술의 미래를 만들어갈 동료를 기다립니다
@@ -124,7 +129,7 @@ function CareersSection() {
         </div>
 
         {/* 채용 프로세스 */}
-        <div className="hiring-process">
+        <div ref={processRef} className={`hiring-process fade-in-up ${processVisible ? 'visible' : ''}`}>
           <h3 className="subsection-title">채용 프로세스</h3>
           <div className="process-timeline">
             {hiringProcess.map((process, index) => (
@@ -146,7 +151,7 @@ function CareersSection() {
         </div>
 
         {/* 복지 혜택 */}
-        <div className="benefits-section">
+        <div ref={benefitsRef} className={`benefits-section fade-in-up ${benefitsVisible ? 'visible' : ''}`}>
           <h3 className="subsection-title">복지 혜택</h3>
           <div className="benefits-grid">
             {benefits.map((benefit, index) => (
@@ -164,7 +169,7 @@ function CareersSection() {
         </div>
 
         {/* 채용 공고 */}
-        <div className="open-positions">
+        <div ref={positionsRef} className={`open-positions fade-in-up ${positionsVisible ? 'visible' : ''}`}>
           <h3 className="subsection-title">채용 공고</h3>
           <div className="positions-grid">
             {openPositions.map((position, index) => (
