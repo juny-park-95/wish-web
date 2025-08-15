@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import VideoPlayer from './VideoPlayer';
 
 function WiMotionDetail() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.2);
@@ -43,10 +44,10 @@ function WiMotionDetail() {
           <section ref={demoRef} className={`detail-section fade-in-up ${demoVisible ? 'visible' : ''}`}>
             <h2 className="detail-section-title">솔루션 데모</h2>
             <div className="demo-video">
-              <video controls width="100%" style={{maxWidth: '800px', margin: '0 auto', display: 'block'}}>
-                <source src="/WiMotion_demo.mp4" type="video/mp4" />
-                브라우저가 동영상을 지원하지 않습니다.
-              </video>
+              <VideoPlayer 
+                src="/WiMotion_demo.mp4"
+                className="service-video-player"
+              />
             </div>
           </section>
 
