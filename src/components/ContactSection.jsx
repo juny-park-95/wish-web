@@ -89,7 +89,7 @@ function ContactSection() {
               <div className="contact-icon">📍</div>
               <div className="contact-details">
                 <h4>주소</h4>
-                <p>서울시 서초구 태봉로 114<br />양재 AIHub 808호</p>
+                <p>서울특별시 서초구 양재천로19길 14<br />504호 (양재동)</p>
               </div>
             </div>
           </div>
