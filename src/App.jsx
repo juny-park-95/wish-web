@@ -15,13 +15,15 @@ function App() {
     <Router>
       <ScrollToTopOnRoute />
       <Navigation />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/widriving" element={<WiDrivingDetail />} />
-        <Route path="/wimotion" element={<WiMotionDetail />} />
-        <Route path="/wivision" element={<WiVisionDetail />} />
-        <Route path="/wicreate" element={<WiCreateDetail />} />
-      </Routes>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/widriving" element={<WiDrivingDetail />} />
+          <Route path="/wimotion" element={<WiMotionDetail />} />
+          <Route path="/wivision" element={<WiVisionDetail />} />
+          <Route path="/wicreate" element={<WiCreateDetail />} />
+        </Routes>
+      </main>
       <Footer />
       <ScrollToTop />
     </Router>

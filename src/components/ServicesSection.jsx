@@ -6,6 +6,7 @@ function ServicesSection() {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation(0.2);
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation(0.1);
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.3);
+
   const services = [
     {
       name: "WiDriving",
@@ -66,48 +67,86 @@ function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="services-section">
+    <section id="services" className="section" style={{ background: 'var(--color-bg-secondary)' }}>
       <div className="container">
-        <div ref={headerRef} className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}>
-          <h2 className="section-title">우리의 솔루션</h2>
-          <p className="section-subtitle">
+        <div ref={headerRef} className={`section-header fade-in ${headerVisible ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1rem' }}>
+            우리의 <span className="text-gradient">솔루션</span>
+          </h2>
+          <p className="section-subtitle" style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
             최첨단 AI 기술로 구현한 위시의 혁신적인 솔루션들을 소개합니다
           </p>
         </div>
-        
+
         <div ref={gridRef} className={`services-grid ${gridVisible ? 'visible' : ''}`}>
           {services.map((service, index) => (
-            <div key={index} className={`service-card fade-in-up ${gridVisible ? 'visible' : ''}`} style={{transitionDelay: `${index * 0.1}s`}}>
-              <div className="service-image">
-                <img src={service.image} alt={service.name} />
-                <div className="service-category">{service.category}</div>
+            <Link to={service.link} key={index} className={`card fade-in-up ${gridVisible ? 'visible' : ''}`} style={{
+              transitionDelay: `${index * 0.1}s`,
+              textDecoration: 'none',
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+              padding: 0
+            }}>
+              <div className="service-image" style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
+                <img src={service.image} alt={service.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
+                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                />
+                <div className="service-category" style={{
+                  position: 'absolute',
+                  top: '1rem',
+                  right: '1rem',
+                  background: 'rgba(15, 23, 42, 0.8)',
+                  backdropFilter: 'blur(4px)',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '20px',
+                  fontSize: '0.8rem',
+                  fontWeight: '600',
+                  color: 'white',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                }}>{service.category}</div>
               </div>
-              <div className="service-content">
-                <div className="service-header">
-                  <h3 className="service-name">{service.name}</h3>
-                  <h4 className="service-title">{service.title}</h4>
+              <div className="service-content" style={{ padding: '2rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <div className="service-header" style={{ marginBottom: '1rem' }}>
+                  <h3 className="service-name" style={{ fontSize: '1.5rem', color: 'var(--color-primary-light)', marginBottom: '0.5rem' }}>{service.name}</h3>
+                  <h4 className="service-title" style={{ fontSize: '1.1rem', color: 'white' }}>{service.title}</h4>
                 </div>
-                <p className="service-description">{service.description}</p>
-                <ul className="service-features">
+                <p className="service-description" style={{ color: 'var(--color-text-secondary)', marginBottom: '1.5rem', lineHeight: '1.6', flexGrow: 1 }}>{service.description}</p>
+                <ul className="service-features" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {service.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
+                    <li key={idx} style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      color: 'var(--color-text-tertiary)',
+                      fontSize: '0.9rem',
+                      marginBottom: '0.5rem'
+                    }}>
+                      <span style={{ color: 'var(--color-primary)' }}>✓</span> {feature}
+                    </li>
                   ))}
                 </ul>
-                <div className="service-action">
-                  <Link to={service.link} className="service-detail-btn">
-                    자세히 보기
-                  </Link>
+                <div style={{ marginTop: '2rem', textAlign: 'right', color: 'var(--color-primary)', fontWeight: '600', fontSize: '0.9rem' }}>
+                  자세히 보기 →
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
-        
-        <div ref={ctaRef} className={`services-cta fade-in ${ctaVisible ? 'visible' : ''}`}>
-          <p>더 자세한 솔루션 정보가 궁금하시나요?</p>
-          <button 
+
+        <div ref={ctaRef} className={`services-cta fade-in ${ctaVisible ? 'visible' : ''}`} style={{
+          marginTop: '6rem',
+          textAlign: 'center',
+          padding: '4rem 2rem',
+          background: 'var(--gradient-card)',
+          borderRadius: '2rem',
+          border: '1px solid var(--color-border)'
+        }}>
+          <p style={{ fontSize: '1.5rem', marginBottom: '2rem', fontWeight: '600' }}>더 자세한 솔루션 정보가 궁금하시나요?</p>
+          <button
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            className="cta-button primary"
+            className="btn btn-primary"
           >
             문의하기
           </button>

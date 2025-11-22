@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +36,22 @@ function ScrollToTop() {
           onClick={scrollToTop}
           aria-label="맨 위로 이동"
         >
-          <FontAwesomeIcon icon={faChevronUp} className="scroll-icon" />
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="scroll-icon"
+          >
+            <path
+              d="M12 19V5M12 5L5 12M12 5L19 12"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
       )}
     </>
