@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
+import SponsorsSection from "./SponsorsSection";
 import ServicesSection from "./ServicesSection";
 import CareersSection from "./CareersSection";
 import ContactSection from "./ContactSection";
@@ -28,6 +29,7 @@ function HomePage() {
     <>
       <HeroSection />
       <AboutSection />
+      <SponsorsSection />
       <ServicesSection />
       <CareersSection />
       <ContactSection />
