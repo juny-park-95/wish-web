@@ -204,14 +204,14 @@ function WiVisionDetail() {
             <div className="case-studies" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
               <div className="case-item card" style={{ padding: '2rem', borderLeft: '4px solid #10B981' }}>
                 <h3 style={{ fontSize: '1.5rem', color: 'white', marginBottom: '1rem' }}>수도시설 안전관리 시스템</h3>
-                <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6', marginBottom: '2rem' }}>◇◇공사 해당 유역에 수도시설 안전관리 시스템을 설치하여 화재/연기, 침입, 배회, 쓰러짐, 안전모 미착용 등의 알고리즘을 28개 위치 CCTV 645개 채널에 성공적으로 적용했습니다.</p>
+                <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6', marginBottom: '2rem' }}>◇◇공사 해당 유역에 수도시설 안전관리 시스템을 설치하여 화재/연기, 침입, 배회, 쓰러짐, 안전모 미착용 등의 알고리즘을 74개 위치 CCTV 1031개 채널에 성공적으로 적용했습니다.</p>
                 <div className="reference-stats" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
                   <div className="stat-item" style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span className="stat-number" style={{ fontSize: '2rem', fontWeight: 'bold', color: '#10B981' }}>28개</span>
+                    <span className="stat-number" style={{ fontSize: '2rem', fontWeight: 'bold', color: '#10B981' }}>74개</span>
                     <span className="stat-label" style={{ color: 'var(--color-text-tertiary)' }}>설치 위치</span>
                   </div>
                   <div className="stat-item" style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span className="stat-number" style={{ fontSize: '2rem', fontWeight: 'bold', color: '#10B981' }}>645개</span>
+                    <span className="stat-number" style={{ fontSize: '2rem', fontWeight: 'bold', color: '#10B981' }}>1031개</span>
                     <span className="stat-label" style={{ color: 'var(--color-text-tertiary)' }}>CCTV 채널</span>
                   </div>
                   <div className="stat-item" style={{ display: 'flex', flexDirection: 'column' }}>
