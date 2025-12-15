@@ -32,9 +32,6 @@ function HeroSection() {
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="hero-content">
           <div ref={textRef} className={`hero-text fade-in-up ${textVisible ? 'visible' : ''}`}>
-            <h1 className="hero-title">
-              디지털 파트너
-            </h1>
             <p className="hero-description">
               위시는 혁신적인 기술과 창의적인 솔루션으로<br className="desktop-only" />
               고객의 비전을 실현하는 글로벌 IT 기업입니다.
